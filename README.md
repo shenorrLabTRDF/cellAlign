@@ -10,8 +10,7 @@ To use this package, you
 will need the R statistical computing environment (version 3.0 or later)
 and several packages available through Bioconductor and CRAN.
 
-This release supports Windows 10. Mac OS X and Linux may support this 
-build, but cellAlign has not been tested with those OS.
+This release supports Windows 10. cellAlign has not been tested with Mac and Linux operating systems.
 
 ---
 
