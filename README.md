@@ -39,6 +39,7 @@ install_github("lindsaysmoore/cellAlign")
 library(cellAlign)
 
 ```
+The following demo is provided to walk you through the basic functionality of cellAlign. It should take less than 10 minutes to complete on a standard desktop computer.
 
 # Introduction 
 Cell Align is a package that takes as input a scaled trajectory vector that orders a gene expression matrix along an arbitrary pseudotime scaled to [0,1], and the gene expression matrix. cellAlign has 3 essential steps:
@@ -212,13 +213,16 @@ text(125,.3,"red points are conserved")
 Sometimes your data will create a branched trajectory when using trajectory-building algorithms that support this kind of output (such as Monocle2 or diffusion pseudotime). 
 
 # Clustering of aligned trajectories
+We have included a function called pseudotimeClust that takes interpolated scaled expression of genes (rows) along pseudotime (columns), applies global alignment per gene and clusters the genes by their pseudotime shifts  using k means clustering.
+
 ```{r}
-pseudotimeClust <- function(x, y, k = 2)
+pseudotimeClust <- function(x=interScaledGlobalLPS$scaledData, y=interScaledGlobalPAM$scaledData, k = 10)
+```
 x - interpolated scaled expression condition 1
 y - interpolated scaled expression condition 2
 k - number of clusters
-```
-This function gets interpolated scaled expression of genes (rows) along pseudotime (columns), applies global alignment per gene and cluster the genes by their pseudotime shifts (k means clustering).
+
+
 
 # References
 1.	Haghverdi, L., et al., Diffusion pseudotime robustly reconstructs lineage branching. Nat Methods, 2016. 13(10): p. 845-8.
