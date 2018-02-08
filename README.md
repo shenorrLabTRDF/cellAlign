@@ -33,7 +33,7 @@ library(devtools)
 install cellAlign and load it
 
 ```{r eval=FALSE}
-install_github("lindsaysmoore/cellAlign")
+install_github("shenorrLab/cellAlign")
 ```
 ```{r}
 library(cellAlign)
