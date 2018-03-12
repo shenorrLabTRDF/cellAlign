@@ -12,6 +12,7 @@ and several packages available through Bioconductor and CRAN.
 
 This release supports Windows 10. cellAlign has not been tested with Mac and Linux operating systems.
 
+The following license governs the use of cellAlign in academic and educational environments. Commercial use requires a commercial license from the Owner of the copyright, The Technion Research &amp; Development Foundation Ltd.,http://t3.trdf.co.il. Please check the license.pdf file for more details
 ---
 
 # Abstract 
