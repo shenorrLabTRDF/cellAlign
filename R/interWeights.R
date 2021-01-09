@@ -19,13 +19,16 @@ interWeights <- function(expDataBatch, trajCond, winSz, numPts){
     expDataBatch = expDataBatch[,-which(is.na(trajCond))]
     trajCond = trajCond[-which(is.na(trajCond))]
   }
+  
+  expDataBatchDense <- as.matrix(expDataBatch)
+  
   #generate equally-spaced points along the trajectory:
   trajValNewPts = seq(from=min(trajCond), to=max(trajCond), length.out = numPts) #length - numPts
   ValNewPts = do.call('cbind',lapply(trajValNewPts, function(trajPt){
     dist2Others = trajCond - trajPt #length - samples number
     weightedData = exp(-(dist2Others^2)/(winSz^2))
     weightedData = weightedData/sum(weightedData)
-    return(as.matrix(expDataBatch) %*% weightedData)
+    return(expDataBatchDense %*% weightedData)
   }))
   #sapply on the traj - for each real data point, find the closest interpolated point:
   a = 1
