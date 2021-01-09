@@ -38,12 +38,13 @@ interWeights <- function(expDataBatch, trajCond, winSz, numPts){
     return(abs(expDataBatch[rowInd,] - ValNewPts[rowInd,closestInt]))
   }))
 
+  errPerGeneDense <- as.matrix(errPerGene)
   #interpolate the error at each interpolated point:
   errInterpolated = do.call('cbind',lapply(trajValNewPts, function(trajPt){
     dist2Others = trajCond - trajPt #length - samples number
     weightedData = exp(-(dist2Others^2)/(winSz^2))
     weightedData = weightedData/sum(weightedData)
-    return(as.matrix(errPerGene) %*% weightedData)
+    return(errPerGeneDense %*% weightedData)
   }))
   rownames(errInterpolated) = rownames(ValNewPts)
 
